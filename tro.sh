@@ -8,7 +8,7 @@
 # 切换到 /home 目录
 # cd /home
 # 创建一个新文件 "ca.txt"
-touch ca.txt
+# touch ca.txt
 # 写入文件内容
 echo 'cn = "18.141.179.7"' >> ca.txt
 echo 'organization = "GlobalSign RULTR"' >> ca.txt
@@ -21,7 +21,7 @@ echo 'crl_signing_key' >> ca.txt
 # 确认文件已创建
 # ls ca.txt
 # 创建一个新文件 "server.txt"
-touch server.txt
+# touch server.txt
 # 写入文件内容
 echo 'cn = "18.141.179.7"' >> server.txt
 echo 'organization = "GlobalSign RULTR"' >> server.txt
