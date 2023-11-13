@@ -17,7 +17,7 @@ touch ca.txt
 
 # 写入文件内容
 cat <<EOF > ca.txt
-cn = "18.140.59.45"
+cn = "18.141.179.7"
 organization = "GlobalSign RULTR"
 serial = 1
 expiration_days = 3650
@@ -35,7 +35,7 @@ touch server.txt
 
 # 写入文件内容
 cat <<EOF > server.txt
-cn = "18.140.59.45"
+cn = "18.141.179.7"
 organization = "GlobalSign RULTR"
 expiration_days = 3650
 signing_key
