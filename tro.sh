@@ -1,6 +1,6 @@
 #!/bin/bash
 # 切换到 root 用户
-sudo -i
+# sudo -i
 # 更新软件包列表
 apt-get update
 # 安装 gnutls-bin 软件包并自动选择“是”
