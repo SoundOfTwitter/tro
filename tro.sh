@@ -1,20 +1,20 @@
 #!/bin/bash
 # 写入文件内容
-echo 'cn = "18.141.179.7"' >> ca.txt
-echo 'organization = "GlobalSign RULTR"' >> ca.txt
-echo 'serial = 1' >> ca.txt
-echo 'expiration_days = 3650' >> ca.txt
-echo 'ca' >> ca.txt
-echo 'signing_key' >> ca.txt
-echo 'cert_signing_key' >> ca.txt
-echo 'crl_signing_key' >> ca.txt
+echo 'cn = "18.141.179.7"' >> /home/admin/ca.txt
+echo 'organization = "GlobalSign RULTR"' >> /home/admin/ca.txt
+echo 'serial = 1' >> /home/admin/ca.txt
+echo 'expiration_days = 3650' >> /home/admin/ca.txt
+echo 'ca' >> /home/admin/ca.txt
+echo 'signing_key' >> /home/admin/ca.txt
+echo 'cert_signing_key' >> /home/admin/ca.txt
+echo 'crl_signing_key' >> /home/admin/ca.txt
 # 写入文件内容
-echo 'cn = "18.141.179.7"' >> server.txt
-echo 'organization = "GlobalSign RULTR"' >> server.txt
-echo 'expiration_days = 3650' >> server.txt
-echo 'signing_key' >> server.txt
-echo 'encryption_key' >> server.txt
-echo 'tls_www_server' >> server.txt
+echo 'cn = "18.141.179.7"' >> /home/admin/server.txt
+echo 'organization = "GlobalSign RULTR"' >> /home/admin/server.txt
+echo 'expiration_days = 3650' >> /home/admin/server.txt
+echo 'signing_key' >> /home/admin/server.txt
+echo 'encryption_key' >> /home/admin/server.txt
+echo 'tls_www_server' >> /home/admin/server.txt
 # 生成 ca-key.pem
 certtool --generate-privkey --outfile ca-key.pem
 # 生成自签名的 CA 证书 ca-cert.pem，同时选择“是”
