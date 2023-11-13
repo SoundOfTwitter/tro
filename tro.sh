@@ -2,39 +2,35 @@
 # 切换到 root 用户
 # sudo -i
 # 更新软件包列表
-apt-get update
+# apt-get update
 # 安装 gnutls-bin 软件包并自动选择“是”
-yes | apt-get install gnutls-bin
+# yes | apt-get install gnutls-bin
 # 切换到 /home 目录
-cd /home
+# cd /home
 # 创建一个新文件 "ca.txt"
 touch ca.txt
 # 写入文件内容
-cat <<EOF > ca.txt
-cn = "18.141.179.7"
-organization = "GlobalSign RULTR"
-serial = 1
-expiration_days = 3650
-ca
-signing_key
-cert_signing_key
-crl_signing_key
-EOF
+echo 'cn = "18.141.179.7"' >> ca.txt
+echo 'organization = "GlobalSign RULTR"' >> ca.txt
+echo 'serial = 1' >> ca.txt
+echo 'expiration_days = 3650' >> ca.txt
+echo 'ca' >> ca.txt
+echo 'signing_key' >> ca.txt
+echo 'cert_signing_key' >> ca.txt
+echo 'crl_signing_key' >> ca.txt
 # 确认文件已创建
-ls ca.txt
+# ls ca.txt
 # 创建一个新文件 "server.txt"
 touch server.txt
 # 写入文件内容
-cat <<EOF > server.txt
-cn = "18.141.179.7"
-organization = "GlobalSign RULTR"
-expiration_days = 3650
-signing_key
-encryption_key
-tls_www_server
-EOF
+echo 'cn = "18.141.179.7"' >> server.txt
+echo 'organization = "GlobalSign RULTR"' >> server.txt
+echo 'expiration_days = 3650' >> server.txt
+echo 'signing_key' >> server.txt
+echo 'encryption_key' >> server.txt
+echo 'tls_www_server' >> server.txt
 # 确认文件已创建
-ls server.txt
+# ls server.txt
 # 生成 ca-key.pem
 certtool --generate-privkey --outfile ca-key.pem
 # 生成自签名的 CA 证书 ca-cert.pem，同时选择“是”
