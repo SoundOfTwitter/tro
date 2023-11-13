@@ -1,14 +1,4 @@
 #!/bin/bash
-# 切换到 root 用户
-# sudo -i
-# 更新软件包列表
-# apt-get update
-# 安装 gnutls-bin 软件包并自动选择“是”
-# yes | apt-get install gnutls-bin
-# 切换到 /home 目录
-# cd /home
-# 创建一个新文件 "ca.txt"
-# touch ca.txt
 # 写入文件内容
 echo 'cn = "18.141.179.7"' >> ca.txt
 echo 'organization = "GlobalSign RULTR"' >> ca.txt
@@ -18,10 +8,6 @@ echo 'ca' >> ca.txt
 echo 'signing_key' >> ca.txt
 echo 'cert_signing_key' >> ca.txt
 echo 'crl_signing_key' >> ca.txt
-# 确认文件已创建
-# ls ca.txt
-# 创建一个新文件 "server.txt"
-# touch server.txt
 # 写入文件内容
 echo 'cn = "18.141.179.7"' >> server.txt
 echo 'organization = "GlobalSign RULTR"' >> server.txt
@@ -29,8 +15,6 @@ echo 'expiration_days = 3650' >> server.txt
 echo 'signing_key' >> server.txt
 echo 'encryption_key' >> server.txt
 echo 'tls_www_server' >> server.txt
-# 确认文件已创建
-# ls server.txt
 # 生成 ca-key.pem
 certtool --generate-privkey --outfile ca-key.pem
 # 生成自签名的 CA 证书 ca-cert.pem，同时选择“是”
@@ -39,8 +23,6 @@ yes | certtool --generate-self-signed --load-privkey ca-key.pem --template ca.tx
 certtool --generate-privkey --outfile trojan-key.pem
 # 生成 trojan-cert.pem，同时选择“是”
 certtool --generate-certificate --load-privkey trojan-key.pem --load-ca-certificate ca-cert.pem --load-ca-privkey ca-key.pem --template server.txt --outfile trojan-cert.pem
-# 安装 trojan 软件包并选择“是”
-yes | apt-get install trojan
 # 将 trojan 使用的证书文件拷贝到目录/etc/trojan：
 cp trojan-cert.pem trojan-key.pem /etc/trojan
 # 修改 config.json 文件
