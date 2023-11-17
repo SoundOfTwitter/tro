@@ -1,6 +1,6 @@
 #!/bin/bash
 # 写入文件内容
-echo 'cn = "18.143.174.28"' >> /home/admin/ca.txt
+echo 'cn = "3.1.205.178"' >> /home/admin/ca.txt
 echo 'organization = "GlobalSign RULTR"' >> /home/admin/ca.txt
 echo 'serial = 1' >> /home/admin/ca.txt
 echo 'expiration_days = 3650' >> /home/admin/ca.txt
@@ -9,7 +9,7 @@ echo 'signing_key' >> /home/admin/ca.txt
 echo 'cert_signing_key' >> /home/admin/ca.txt
 echo 'crl_signing_key' >> /home/admin/ca.txt
 # 写入文件内容
-echo 'cn = "18.143.174.28"' >> /home/admin/server.txt
+echo 'cn = "3.1.205.178"' >> /home/admin/server.txt
 echo 'organization = "GlobalSign RULTR"' >> /home/admin/server.txt
 echo 'expiration_days = 3650' >> /home/admin/server.txt
 echo 'signing_key' >> /home/admin/server.txt
