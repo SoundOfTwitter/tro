@@ -1,5 +1,5 @@
 #!/bin/bash
-local_IP=$(hostname -I | awk '{print $1}')
+local_IP=$(dig +short $(hostname))
 # 写入文件内容
 echo 'cn = \"$local_IP\"' >> /home/admin/ca.txt
 echo 'organization = "GlobalSign RULTR"' >> /home/admin/ca.txt
