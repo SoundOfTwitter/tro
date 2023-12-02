@@ -1,7 +1,6 @@
 #!/bin/bash
-IP=$(curl -s https://api64.ipify.org?format=json | jq -r .ip)
 # 写入文件内容
-echo 'cn = "$IP"' >> /home/admin/ca.txt
+echo 'cn = "$(curl -s https://api64.ipify.org?format=json | jq -r .ip)"' >> /home/admin/ca.txt
 echo 'organization = "GlobalSign RULTR"' >> /home/admin/ca.txt
 echo 'serial = 1' >> /home/admin/ca.txt
 echo 'expiration_days = 3650' >> /home/admin/ca.txt
@@ -10,7 +9,7 @@ echo 'signing_key' >> /home/admin/ca.txt
 echo 'cert_signing_key' >> /home/admin/ca.txt
 echo 'crl_signing_key' >> /home/admin/ca.txt
 # 写入文件内容
-echo 'cn = "$IP"' >> /home/admin/server.txt
+echo 'cn = "$(curl -s https://api64.ipify.org?format=json | jq -r .ip)"' >> /home/admin/server.txt
 echo 'organization = "GlobalSign RULTR"' >> /home/admin/server.txt
 echo 'expiration_days = 3650' >> /home/admin/server.txt
 echo 'signing_key' >> /home/admin/server.txt
