@@ -38,9 +38,10 @@ certtool --generate-certificate --load-privkey trojan-key.pem --load-ca-certific
 # 将 trojan 使用的证书文件拷贝到目录/etc/trojan：
 cp trojan-cert.pem trojan-key.pem /etc/trojan
 # 修改 config.json 文件
-sed -i '8s/.*/        "aDm8H%MdA",/' /etc/trojan/config.json
+sed -i '8s/.*/        "aDm8H%MdA"/' /etc/trojan/config.json
 sed -i '13s/.*/        "cert": "\/etc\/trojan\/trojan-cert.pem",/' /etc/trojan/config.json
 sed -i '14s/.*/        "key": "\/etc\/trojan\/trojan-key.pem",/' /etc/trojan/config.json
+sed -i '9d' /etc/trojan/config.json
 # 将/lib/systemd/system/trojan.service里的User更改为trojan
 sed -i '9s/.*/User=trojan/' /lib/systemd/system/trojan.service
 groupadd -g 54321 trojan
