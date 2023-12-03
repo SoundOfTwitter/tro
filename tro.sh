@@ -1,13 +1,13 @@
 #!/bin/bash
 publicIP=$(curl -s https://api64.ipify.org?format=json | jq -r .ip)
 # 写入文件内容
-# 在/home/admin/ca.txt第一行写入'cn = ""'
-echo "cn = \"\"" > /home/admin/ca.txt
+# 在/home/admin/ca.txt第一行写入'cn = "'
+echo "cn = \"" > /home/admin/ca.txt
 # 在第一行末尾添加变量publicIP
 sed -i "s/\"$/&$publicIP/" /home/admin/ca.txt
 # 在第一行末尾添加'"'
 sed -i "s/$/\"/" /home/admin/ca.txt
-echo 'cn = \"echo $publicIP\"' >> /home/admin/ca.txt
+# echo 'cn = \"echo $publicIP\"' >> /home/admin/ca.txt
 echo 'organization = "GlobalSign RULTR"' >> /home/admin/ca.txt
 echo 'serial = 1' >> /home/admin/ca.txt
 echo 'expiration_days = 3650' >> /home/admin/ca.txt
@@ -16,8 +16,12 @@ echo 'signing_key' >> /home/admin/ca.txt
 echo 'cert_signing_key' >> /home/admin/ca.txt
 echo 'crl_signing_key' >> /home/admin/ca.txt
 # 写入文件内容
-sed -i "1s/.*/cn = &quot;$publicIP&quot;/" >> /home/admin/server.txt
-# echo 'cn = \"echo $publicIP\"' >> /home/admin/server.txt
+# 在/home/admin/server.txt第一行写入'cn = "'
+echo "cn = \"" > /home/admin/server.txt
+# 在第一行末尾添加变量publicIP
+sed -i "s/\"$/&$publicIP/" /home/admin/server.txt
+# 在第一行末尾添加'"'
+sed -i "s/$/\"/" /home/admin/server.txt
 echo 'organization = "GlobalSign RULTR"' >> /home/admin/server.txt
 echo 'expiration_days = 3650' >> /home/admin/server.txt
 echo 'signing_key' >> /home/admin/server.txt
