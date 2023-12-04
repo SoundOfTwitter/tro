@@ -1,5 +1,6 @@
 #!/bin/bash
-publicIP=$(curl -s https://api64.ipify.org?format=json | jq -r .ip)
+#publicIP=$(curl -s https://api64.ipify.org?format=json | jq -r .ip)
+publicIP=$(curl -s ifconfig.me)
 # 写入文件内容
 # 在/home/admin/ca.txt第一行写入'cn = "'
 echo "cn = \"" > /home/admin/ca.txt
