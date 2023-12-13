@@ -1,5 +1,4 @@
 #!/bin/bash
-#publicIP=$(curl -s https://api64.ipify.org?format=json | jq -r .ip)
 publicIP=$(curl -s ifconfig.me)
 # 写入文件内容
 # 在/home/admin/ca.txt第一行写入'cn = "'
@@ -8,7 +7,6 @@ echo "cn = \"" > /home/admin/ca.txt
 sed -i "s/\"$/&$publicIP/" /home/admin/ca.txt
 # 在第一行末尾添加'"'
 sed -i "s/$/\"/" /home/admin/ca.txt
-# echo 'cn = \"echo $publicIP\"' >> /home/admin/ca.txt
 echo 'organization = "GlobalSign RULTR"' >> /home/admin/ca.txt
 echo 'serial = 1' >> /home/admin/ca.txt
 echo 'expiration_days = 3650' >> /home/admin/ca.txt
