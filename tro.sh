@@ -48,8 +48,4 @@ useradd -g trojan -s /usr/sbin/nologin trojan
 chown -R trojan:trojan /etc/trojan
 systemctl start trojan
 systemctl enable trojan
-echo net.core.default_qdisc=fq >> /etc/sysctl.conf
-echo net.ipv4.tcp_congestion_control=bbr >> /etc/sysctl.conf
-sysctl -p
-sysctl net.ipv4.tcp_available_congestion_control
 reboot
