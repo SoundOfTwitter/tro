@@ -1,6 +1,6 @@
 #!/bin/bash
 # publicIP=$(curl -s https://ifconfig.me/ip)
-publicIP=$(curl -s http://ip1.dynupdate.no-ip.com/)
+read -p "请输入本机公网IP地址: " publicIP
 # 写入文件内容
 # 在/home/admin/ca.txt第一行写入'cn = "'
 echo "cn = \"" > /home/admin/ca.txt
