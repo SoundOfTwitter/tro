@@ -1,4 +1,5 @@
 #!/bin/bash
+read -p "请输入计划设置的密码: " admin_passwd
 publicIP=$(wget -qO- ifconfig.me)
 # read -p "请输入本机公网IP地址: " publicIP
 # 写入文件内容
@@ -38,7 +39,8 @@ certtool --generate-certificate --load-privkey trojan-key.pem --load-ca-certific
 # 将 trojan 使用的证书文件拷贝到目录/etc/trojan：
 cp trojan-cert.pem trojan-key.pem /etc/trojan
 # 修改 config.json 文件
-sed -i '8s/.*/        "aDm8H%MdA"/' /etc/trojan/config.json
+# sed -i '8s/.*/        "aDm8H%MdA"/' /etc/trojan/config.json
+sed -i '8s/.*/        \"$admin_passwd\"/' /etc/trojan/config.json
 sed -i '13s/.*/        "cert": "\/etc\/trojan\/trojan-cert.pem",/' /etc/trojan/config.json
 sed -i '14s/.*/        "key": "\/etc\/trojan\/trojan-key.pem",/' /etc/trojan/config.json
 sed -i '9d' /etc/trojan/config.json
